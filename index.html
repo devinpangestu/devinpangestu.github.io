@@ -4,6 +4,9 @@
     </head>  
     
     <body class="not-loaded">
+        <button id="toggleColorPickersButton">Choose Colors</button>
+<input type="color" id="colorPicker1" />
+<input type="color" id="colorPicker2" />
         <div class="night"></div>
         <div class="flowers">
           <div class="flower flower--1">
@@ -336,6 +339,41 @@
                 clearTimeout(c);
                 }, 1000);
             };
+         
+  document.addEventListener("DOMContentLoaded", function () {
+    const colorPicker1 = document.getElementById("colorPicker1");
+    const colorPicker2 = document.getElementById("colorPicker2");
+    const toggleButton = document.getElementById("toggleColorPickersButton");
+
+    let color1 = "#ff5733";
+    let color2 = "#33ff57";
+
+    function updateGradient() {
+      Array.from(document.getElementsByClassName("flower__leaf")).forEach(el => {
+        el.style.backgroundImage = `linear-gradient(to top, ${color1}, ${color2})`;
+      });
+    }
+
+    colorPicker1.addEventListener("input", function () {
+      color1 = colorPicker1.value;
+      updateGradient();
+    });
+
+    colorPicker2.addEventListener("input", function () {
+      color2 = colorPicker2.value;
+      updateGradient();
+    });
+
+    toggleButton.addEventListener("click", function () {
+      const isVisible = colorPicker1.style.display === "block";
+      colorPicker1.style.display = isVisible ? "none" : "block";
+      colorPicker2.style.display = isVisible ? "none" : "block";
+      console.log("colorPicker1 display:", colorPicker1.style.display);
+    });
+
+    updateGradient();
+  });
+
         </script>
       </body>
 
