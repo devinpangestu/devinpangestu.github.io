@@ -4,7 +4,7 @@
     </head>  
     
     <body class="not-loaded">
-        <button id="toggleColorPickersButton">Choose Colors</button>
+        
 <input type="color" id="colorPicker1" />
 <input type="color" id="colorPicker2" />
         <div class="night"></div>
@@ -366,8 +366,8 @@
 
     toggleButton.addEventListener("click", function () {
       const isVisible = colorPicker1.style.display === "block";
-      colorPicker1.style.display = isVisible ? "none" : "block";
-      colorPicker2.style.display = isVisible ? "none" : "block";
+      colorPicker1.style.display = isVisible ? "block" : "block";
+      colorPicker2.style.display = isVisible ? "block" : "block";
       console.log("colorPicker1 display:", colorPicker1.style.display);
     });
 
